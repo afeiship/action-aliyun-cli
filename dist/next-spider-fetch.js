@@ -2,8 +2,8 @@
  * name: @feizheng/next-spider-fetch
  * description: Fetch special for spider.
  * homepage: https://github.com/afeiship/next-spider-fetch
- * version: 1.0.0
- * date: 2020-06-30T02:20:42.454Z
+ * version: 1.0.1
+ * date: 2020-06-30T06:34:04.118Z
  * license: MIT
  */
 
