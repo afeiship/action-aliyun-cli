@@ -22,6 +22,13 @@ fetch('https://api.github.com/users/afeiship').then(res=>res.json()).then(res=>{
 });
 ```
 
+## options
+| name    | type   | description            |
+| ------- | ------ | ---------------------- |
+| timeout | Number | Timeout for fetch.     |
+| delay   | Number | Request with delay.    |
+| proxy   | String | Set proxy for request. |
+
 ## license
 Code released under [the MIT license](https://github.com/afeiship/next-spider-fetch/blob/master/LICENSE.txt).
 
