@@ -8,20 +8,14 @@
   var nxFetchWithDelay = require('@feizheng/next-fetch-with-delay');
   var nxFetchWithProxy = require('@feizheng/next-fetch-with-proxy');
 
-  var DEFAULT_OPTIONS = {
-    fetch: nodeFetch,
-    middlewares: [
-      nxFetchWithNodeTimeut,
-      nxFetchWithRandomUa,
-      nxFetchWithDelay,
-      nxFetchWithProxy
-    ]
-  };
+  var spiderFetch = nxApplyMiddlewares([
+    nxFetchWithNodeTimeut,
+    nxFetchWithRandomUa,
+    nxFetchWithDelay,
+    nxFetchWithProxy
+  ])(nodeFetch);
 
-  nx.spiderFetch = function (inOptions) {
-    var options = nx.mix(null, DEFAULT_OPTIONS, inOptions);
-    return nxApplyMiddlewares(options.middlewares)(options.fetch)
-  };
+  nx.spiderFetch = spiderFetch;
 
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = nx.spiderFetch;

@@ -1,7 +1,7 @@
 const nx = require('@feizheng/next-js-core2');
 require('../src/next-spider-fetch');
 
-const fetch = nx.spiderFetch();
+const fetch = nx.spiderFetch;
 
 describe('api.basic test', () => {
   test('nx.spiderFetch fetch html', function (done) {

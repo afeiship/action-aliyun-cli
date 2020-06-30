@@ -15,9 +15,7 @@ npm install -S @feizheng/next-spider-fetch
 ```js
 import '@feizheng/next-spider-fetch';
 
-const fetch = nx.spiderFetch();
-
-fetch('https://api.github.com/users/afeiship').then(res=>res.json()).then(res=>{
+nx.spiderFetch('https://api.github.com/users/afeiship').then(res=>res.json()).then(res=>{
   console.log(res);
 });
 ```
