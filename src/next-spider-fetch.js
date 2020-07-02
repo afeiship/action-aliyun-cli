@@ -7,12 +7,14 @@
   var nxFetchWithRandomUa = require('@feizheng/next-fetch-with-random-ua');
   var nxFetchWithDelay = require('@feizheng/next-fetch-with-delay');
   var nxFetchWithProxy = require('@feizheng/next-fetch-with-proxy');
+  var nxFetchWithDebug = require('@feizheng/next-fetch-with-debug');
 
   var spiderFetch = nxApplyMiddlewares([
     nxFetchWithNodeTimeut,
     nxFetchWithRandomUa,
     nxFetchWithDelay,
-    nxFetchWithProxy
+    nxFetchWithProxy,
+    nxFetchWithDebug,
   ])(nodeFetch);
 
   nx.spiderFetch = spiderFetch;

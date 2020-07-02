@@ -1,6 +1,6 @@
 {
   "name": "@feizheng/next-spider-fetch",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Fetch special for spider.",
   "homepage": "https://github.com/afeiship/next-spider-fetch",
   "author": {
@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@feizheng/next-apply-fetch-middleware": "^1.0.0",
+    "@feizheng/next-fetch-with-debug": "^1.0.1",
     "@feizheng/next-fetch-with-delay": "^1.0.0",
     "@feizheng/next-fetch-with-node-timeout": "^1.0.0",
     "@feizheng/next-fetch-with-proxy": "^1.0.0",
