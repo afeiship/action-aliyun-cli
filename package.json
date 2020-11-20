@@ -45,5 +45,11 @@
     "@jswork/next-fetch-with-proxy": "^1.0.0",
     "@jswork/next-fetch-with-random-ua": "^1.0.0",
     "node-fetch": "^2.6.1"
-  }
+  },
+  "keywords": [
+    "next",
+    "spider",
+    "crawl",
+    "fetch"
+  ]
 }

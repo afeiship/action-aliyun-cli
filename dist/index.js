@@ -3,7 +3,7 @@
  * description: Fetch special for spider.
  * homepage: https://github.com/afeiship/next-spider-fetch
  * version: 1.0.0
- * date: 2020-11-20 22:35:24
+ * date: 2020-11-20 22:36:11
  * license: MIT
  */
 
