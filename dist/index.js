@@ -3,7 +3,7 @@
  * description: Fetch special for spider.
  * homepage: https://github.com/afeiship/next-spider-fetch
  * version: 1.0.0
- * date: 2020-11-20 22:36:11
+ * date: 2021-07-28 14:22:27
  * license: MIT
  */
 
@@ -17,13 +17,15 @@
   var nxFetchWithDelay = require('@jswork/next-fetch-with-delay');
   var nxFetchWithProxy = require('@jswork/next-fetch-with-proxy');
   var nxFetchWithDebug = require('@jswork/next-fetch-with-debug');
+  var nxFetchWithRetry = require('@jswork/next-fetch-with-retry');
 
   var spiderFetch = nxApplyMiddlewares([
     nxFetchWithNodeTimeut,
     nxFetchWithRandomUa,
     nxFetchWithDelay,
     nxFetchWithProxy,
-    nxFetchWithDebug
+    nxFetchWithDebug,
+    nxFetchWithRetry
   ])(nodeFetch);
 
   nx.spiderFetch = spiderFetch;

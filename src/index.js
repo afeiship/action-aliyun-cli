@@ -8,13 +8,15 @@
   var nxFetchWithDelay = require('@jswork/next-fetch-with-delay');
   var nxFetchWithProxy = require('@jswork/next-fetch-with-proxy');
   var nxFetchWithDebug = require('@jswork/next-fetch-with-debug');
+  var nxFetchWithRetry = require('@jswork/next-fetch-with-retry');
 
   var spiderFetch = nxApplyMiddlewares([
     nxFetchWithNodeTimeut,
     nxFetchWithRandomUa,
     nxFetchWithDelay,
     nxFetchWithProxy,
-    nxFetchWithDebug
+    nxFetchWithDebug,
+    nxFetchWithRetry
   ])(nodeFetch);
 
   nx.spiderFetch = spiderFetch;
