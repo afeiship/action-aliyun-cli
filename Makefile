@@ -31,3 +31,5 @@ check:
 	@echo "RELEASE_COMMIT_MSG=$(RELEASE_COMMIT_MSG)"
 	@echo "RELEASE_TAG_MSG=$(RELEASE_TAG_MSG)"
 
+# 设置默认目标
+default: publish
