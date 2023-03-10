@@ -14,3 +14,13 @@ runs:
       run: |
         curl -sL https://github.com/aliyun/aliyun-cli/releases/download/v${{ inputs.version }}/aliyun-cli-linux-${{ inputs.version }}-amd64.tgz | tar -xzf - -C /usr/local/bin --strip-components=1 aliyun
         aliyun --version
+    
+    - name: Set env from secrets
+      env: 
+        ALIYUN_ACCESS_KEY_ID: ${{ secrets.ALIYUN_ACCESS_KEY_ID }}
+        ALIYUN_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}
+        ALIBABACLOUD_REGION_ID: ${{ secrets.ALIBABACLOUD_REGION_ID }}
+      shell: bash
+      run: |
+        aliyun configure set --mode AK --access-key-id $ALIYUN_ACCESS_KEY_ID --access-key-secret $ALIYUN_ACCESS_KEY_SECRET --region-id $ALIBABACLOUD_REGION_ID
+        aliyun configure list
