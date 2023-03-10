@@ -17,15 +17,16 @@ runs:
     ACCESS_KEY_ID: ${{ inputs.secrets.ALIBABACLOUD_ACCESS_KEY_ID }}
     ACCESS_KEY_SECRET: ${{ inputs.secrets.ALIBABACLOUD_ACCESS_KEY_SECRET }}
     REGION_ID: ${{ inputs.secrets.ALIBABACLOUD_REGION_ID }}
-  steps:
-    - name: Install aliyun cli
-      shell: bash
-      run: |
-        curl -sL https://github.com/aliyun/aliyun-cli/releases/download/v${{ inputs.version }}/aliyun-cli-linux-${{ inputs.version }}-amd64.tgz | tar -xzf - -C /usr/local/bin --strip-components=1 aliyun
-        aliyun --version
-    
-    - name: Set env from secrets
-      shell: bash
-      run: |
-        aliyun configure set --mode AK --access-key-id $ACCESS_KEY_ID --access-key-secret $ACCESS_KEY_SECRET --region-id $REGION_ID
-        aliyun configure list
+
+steps:
+  - name: Install aliyun cli
+    shell: bash
+    run: |
+      curl -sL https://github.com/aliyun/aliyun-cli/releases/download/v${{ inputs.version }}/aliyun-cli-linux-${{ inputs.version }}-amd64.tgz | tar -xzf - -C /usr/local/bin --strip-components=1 aliyun
+      aliyun --version
+  
+  - name: Set env from secrets
+    shell: bash
+    run: |
+      aliyun configure set --mode AK --access-key-id $ACCESS_KEY_ID --access-key-secret $ACCESS_KEY_SECRET --region-id $REGION_ID
+      aliyun configure list
