@@ -1,6 +1,8 @@
 # action-aliyun-cli
 > Github actions for aliyun-cli.
 
+![](https://p.ipic.vip/de22fc.png)
+
 ## usgae
 ```yml
 - name: Use aliyun-cli
