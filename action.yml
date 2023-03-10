@@ -1,8 +1,8 @@
 name: 'AliyunCli Action'
 description: 'Action for aliyun cli.'
 inputs:
-  secrets:
-    description: 'The secrets to use.'
+  aliyun_secrets:
+    description: 'The aliyun secrets(ACCESS_KEY_ID, ACCESS_KEY_SECRET, REGION_ID)'
     required: true
   version:
     description: 'The version number of aliyun-cli to download'
@@ -18,9 +18,7 @@ runs:
       shell: bash
       run: |
         # set envs 
-        export ALIBABACLOUD_ACCESS_KEY_ID=${{ inputs.secrets.ALIBABACLOUD_ACCESS_KEY_ID }}
-        export ALIBABACLOUD_ACCESS_KEY_SECRET=${{ inputs.secrets.ALIBABACLOUD_ACCESS_KEY_SECRET }}
-        export ALIBABACLOUD_REGION_ID=${{ inputs.secrets.ALIBABACLOUD_REGION_ID }}
+        export $(awk 'NF {sub(/\r/, ""); print "export " $0}' ${{ inputs.aliyun_secrets }})
         
         # install aliyun-cli
         curl -sL https://github.com/aliyun/aliyun-cli/releases/download/v${{ inputs.version }}/aliyun-cli-linux-${{ inputs.version }}-amd64.tgz | tar -xzf - -C /usr/local/bin --strip-components=1 aliyun
