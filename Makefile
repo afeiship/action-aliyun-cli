@@ -4,7 +4,7 @@ VERSION := 1.0.0
 
 # 定义发布相关变量
 RELEASE_BRANCH := master
-RELEASE_TAG := v$(shell echo $(VERSION) | awk -F. '{print $$1"."$$2"."$$3+1}')
+RELEASE_TAG := $(shell echo $(VERSION) | awk -F. '{print $$1"."$$2"."$$3+1}')
 RELEASE_COMMIT_MSG := Release $(RELEASE_TAG)
 RELEASE_TAG_MSG := Release $(RELEASE_TAG)
 
