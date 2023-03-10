@@ -16,4 +16,5 @@ jobs:
 
       - name: Debug
         run: |
+          printenv
           aliyun --version
