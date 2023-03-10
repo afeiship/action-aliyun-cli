@@ -12,13 +12,13 @@ RELEASE_TAG_MSG := Release $(RELEASE_TAG)
 
 # 创建新的 git tag 并将其推送到 GitHub
 release:
-	echo "Releasing $(RELEASE_TAG)"
+	echo "Creating git tag and pushing to GitHub..."
 	@git checkout $(RELEASE_BRANCH)
 	@git tag -a $(RELEASE_TAG) -m "$(RELEASE_TAG_MSG)"
 	@git commit -m "$(RELEASE_COMMIT_MSG)" --allow-empty
 	@git push origin $(RELEASE_TAG)
 
-	# 创建 GitHub Release
+	echo "Creating GitHub Release..."
 	@gh release create $(RELEASE_TAG) \
 	--title "$(RELEASE_TAG_MSG)" \
 	--notes "$(RELEASE_COMMIT_MSG)"
