@@ -13,14 +13,16 @@ outputs: {}
 
 runs:
   using: "composite"
-  env: 
-    ALIBABACLOUD_ACCESS_KEY_ID: ${{ inputs.secrets.ALIBABACLOUD_ACCESS_KEY_ID }}
-    ALIBABACLOUD_ACCESS_KEY_SECRET: ${{ inputs.secrets.ALIBABACLOUD_ACCESS_KEY_SECRET }}
-    ALIBABACLOUD_REGION_ID: ${{ inputs.secrets.ALIBABACLOUD_REGION_ID }}
   steps:
     - name: Install aliyun cli
       shell: bash
       run: |
+        # set envs 
+        export ALIBABACLOUD_ACCESS_KEY_ID=${{ inputs.secrets.ALIBABACLOUD_ACCESS_KEY_ID }}
+        export ALIBABACLOUD_ACCESS_KEY_SECRET=${{ inputs.secrets.ALIBABACLOUD_ACCESS_KEY_SECRET }}
+        export ALIBABACLOUD_REGION_ID=${{ inputs.secrets.ALIBABACLOUD_REGION_ID }}
+        
+        # install aliyun-cli
         curl -sL https://github.com/aliyun/aliyun-cli/releases/download/v${{ inputs.version }}/aliyun-cli-linux-${{ inputs.version }}-amd64.tgz | tar -xzf - -C /usr/local/bin --strip-components=1 aliyun
         aliyun --version
         printenv
