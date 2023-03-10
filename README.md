@@ -18,10 +18,10 @@ jobs:
     name: hello-docker
     runs-on: ubuntu-latest
     env:
-      ALIBABACLOUD_ACCESS_KEY_ID: ${{ secrets.ALIBABACLOUD_ACCESS_KEY_ID }}
-      ALIBABACLOUD_ACCESS_KEY_SECRET: ${{ secrets.ALIBABACLOUD_ACCESS_KEY_SECRET }}
-      ALIBABACLOUD_REGION_ID: ${{ secrets.ALIBABACLOUD_REGION_ID }}
-      ALIBABACLOUD_DEBUG: true
+      ACCESS_KEY_ID: ${{ secrets.ALIBABACLOUD_ACCESS_KEY_ID }}
+      ACCESS_KEY_SECRET: ${{ secrets.ALIBABACLOUD_ACCESS_KEY_SECRET }}
+      REGION: ${{ secrets.ALIBABACLOUD_REGION_ID }}
+      DEBUG: sdk
     steps:
       - name: Checkout
         uses: actions/checkout@v2
