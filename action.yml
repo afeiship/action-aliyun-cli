@@ -1,6 +1,9 @@
 name: 'AliyunCli Action'
 description: 'Action for aliyun cli.'
 inputs:
+  secrets:
+    description: 'The secrets to use.'
+    required: true
   version:
     description: 'The version number of aliyun-cli to download'
     required: false
@@ -8,9 +11,9 @@ inputs:
 outputs: {}
 
 env: 
-  ALIYUN_ACCESS_KEY_ID: ${{ secrets.ALIYUN_ACCESS_KEY_ID }}
-  ALIYUN_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}
-  ALIBABACLOUD_REGION_ID: ${{ secrets.ALIBABACLOUD_REGION_ID }}
+  ALIYUN_ACCESS_KEY_ID: ${{ inputs.secrets.ALIYUN_ACCESS_KEY_ID }}
+  ALIYUN_ACCESS_KEY_SECRET: ${{ inputs.secrets.ALIYUN_ACCESS_KEY_SECRET }}
+  ALIBABACLOUD_REGION_ID: ${{ inputs.secrets.ALIBABACLOUD_REGION_ID }}
 
 runs:
   using: "composite"

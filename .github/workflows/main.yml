@@ -12,6 +12,7 @@ jobs:
         uses: afeiship/action-aliyun-cli@master
         with:
           version: '3.0.152'
+          secrets: ${{ secrets }}
 
       - name: Debug
         run: |
