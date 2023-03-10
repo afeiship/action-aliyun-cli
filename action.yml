@@ -3,7 +3,7 @@ description: 'A GitHub Action for debugging'
 inputs: 
   version:
     description: 'The version number of aliyun-cli to download'
-    required: true
+    required: false
     default: '3.0.121'
 outputs: {}
 runs:
