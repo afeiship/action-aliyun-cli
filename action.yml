@@ -17,7 +17,6 @@ runs:
     ALIBABACLOUD_ACCESS_KEY_ID: ${{ inputs.secrets.ALIBABACLOUD_ACCESS_KEY_ID }}
     ALIBABACLOUD_ACCESS_KEY_SECRET: ${{ inputs.secrets.ALIBABACLOUD_ACCESS_KEY_SECRET }}
     ALIBABACLOUD_REGION_ID: ${{ inputs.secrets.ALIBABACLOUD_REGION_ID }}
-  
   steps:
     - name: Install aliyun cli
       shell: bash
