@@ -4,7 +4,7 @@
 ## usgae
 ```yml
 - name: Use aliyun-cli v3.0.121
-  uses: afeiship/action-aliyun-cli
+  uses: afeiship/action-aliyun-cli@master
   with:
     version: '3.0.121'
 ```

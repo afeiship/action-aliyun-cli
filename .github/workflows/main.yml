@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Use aliyun-cli v3.0.152
-        uses: afeiship/action-aliyun-cli
+        uses: afeiship/action-aliyun-cli@master
         with:
           version: '3.0.152'
 
