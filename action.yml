@@ -18,10 +18,9 @@ runs:
       shell: bash
       run: |
         # set envs 
-        export $(awk 'NF {sub(/\r/, ""); print "export " $0}' ${{ inputs.aliyun_secrets }})
+        export $(< ${{ inputs.aliyun_secrets }})
         
         # install aliyun-cli
         curl -sL https://github.com/aliyun/aliyun-cli/releases/download/v${{ inputs.version }}/aliyun-cli-linux-${{ inputs.version }}-amd64.tgz | tar -xzf - -C /usr/local/bin --strip-components=1 aliyun
         aliyun --version
-        printenv
     
