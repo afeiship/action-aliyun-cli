@@ -17,6 +17,12 @@ release:
 	git commit -m "$(RELEASE_COMMIT_MSG)" --allow-empty
 	git push origin $(RELEASE_TAG)
 
+	# 创建 GitHub Release
+	gh release create $(RELEASE_TAG) \
+	--title "$(RELEASE_TAG_MSG)" \
+	--notes "$(RELEASE_COMMIT_MSG)"
+
+
 # 递增版本号并发布新版本
 publish:
 	$(eval VERSION=$(shell echo $(VERSION) | awk -F. '{print $$1"."$$2"."$$3+1}'))
