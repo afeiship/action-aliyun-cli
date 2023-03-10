@@ -8,7 +8,7 @@ RELEASE_TAG := v$(shell echo $(VERSION) | awk -F. '{print $$1"."$$2"."$$3+1}')
 RELEASE_COMMIT_MSG := Release $(RELEASE_TAG)
 RELEASE_TAG_MSG := Release $(RELEASE_TAG)
 
-.PHONY: release publish dry-run
+.PHONY: release publish check
 
 # 创建新的 git tag 并将其推送到 GitHub
 release:
@@ -22,8 +22,8 @@ publish:
 	$(eval VERSION=$(shell echo $(VERSION) | awk -F. '{print $$1"."$$2"."$$3+1}'))
 	$(MAKE) release
 
-# 打印版本信息以进行 dry-run
-dry-run:
+# 打印版本信息以进行 check
+check:
 	@echo "PROJECT_NAME=$(PROJECT_NAME)"
 	@echo "VERSION=$(VERSION)"
 	@echo "RELEASE_BRANCH=$(RELEASE_BRANCH)"
