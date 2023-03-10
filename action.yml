@@ -1,17 +1,17 @@
 name: 'AliyunCli Action'
-description: 'A GitHub Action for debugging'
-inputs: 
+description: 'Action for aliyun cli.'
+inputs:
   version:
     description: 'The version number of aliyun-cli to download'
     required: false
     default: '3.0.121'
 outputs: {}
 runs:
-  shell: bash
-  command: |
-    curl -L -o aliyun-cli.tar.gz https://github.com/aliyun/aliyun-cli/archive/v${{ inputs.version }}.tar.gz
-    tar zxf aliyun-cli.tar.gz
-    mv aliyun-cli-${{ inputs.version }} aliyun-cli
-    sudo mv aliyun-cli/bin/aliyun /usr/local/bin/
-    rm -rf aliyun-cli.tar.gz aliyun-cli
-    aliyun help
+  using: "composite"
+  steps:
+    - name: Install aliyun cli
+      shell: bash
+      run: |
+        curl -L -o aliyun-cli.tar.gz https://github.com/aliyun/aliyun-cli/releases/download/v${{ inputs.version }}/aliyun-cli-linux-${{ inputs.version }}-amd64.tgz
+        tar zxf aliyun-cli.tar.gz
+        cp aliyun /usr/local/bin
