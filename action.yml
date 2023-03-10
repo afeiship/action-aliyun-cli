@@ -12,6 +12,5 @@ runs:
     - name: Install aliyun cli
       shell: bash
       run: |
-        curl -L -o aliyun-cli.tar.gz https://github.com/aliyun/aliyun-cli/releases/download/v${{ inputs.version }}/aliyun-cli-linux-${{ inputs.version }}-amd64.tgz
-        tar zxf aliyun-cli.tar.gz
-        cp aliyun /usr/local/bin
+        curl -L -o aliyun-cli.tar.gz https://github.com/aliyun/aliyun-cli/releases/download/v${{ inputs.version }}/aliyun-cli-linux-${{ inputs.version }}-amd64.tgz | tar -xzf - -C /usr/local/bin --strip-components=1 aliyun
+        aliyun --version
