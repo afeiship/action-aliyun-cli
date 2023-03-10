@@ -1,15 +1,11 @@
 name: 'AliyunCli Action'
 description: 'Action for aliyun cli.'
 inputs:
-  aliyun_secrets:
-    description: 'The aliyun secrets(ACCESS_KEY_ID, ACCESS_KEY_SECRET, REGION_ID)'
-    required: true
   version:
     description: 'The version number of aliyun-cli to download'
     required: false
     default: '3.0.121'
 outputs: {}
-
 
 runs:
   using: "composite"
@@ -17,11 +13,6 @@ runs:
     - name: Install aliyun cli
       shell: bash
       run: |
-        # set envs 
-        echo ${{ inputs.aliyun_secrets }} > /tmp/.env_aliyun
-        ls -alh /tmp/
-        export $(< /tmp/.env_aliyun)
-        
         # install aliyun-cli
         curl -sL https://github.com/aliyun/aliyun-cli/releases/download/v${{ inputs.version }}/aliyun-cli-linux-${{ inputs.version }}-amd64.tgz | tar -xzf - -C /usr/local/bin --strip-components=1 aliyun
         aliyun --version
