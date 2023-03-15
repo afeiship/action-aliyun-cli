@@ -15,5 +15,4 @@ runs:
       run: |
         # install aliyun-cli
         curl -sL https://github.com/aliyun/aliyun-cli/releases/download/v${{ inputs.version }}/aliyun-cli-linux-${{ inputs.version }}-amd64.tgz | tar -xzf - -C /usr/local/bin --strip-components=1 aliyun
-        aliyun --version
     
