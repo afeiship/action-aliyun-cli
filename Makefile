@@ -1,6 +1,6 @@
 # 定义项目名称和初始版本号
 PROJECT_NAME := action-aliyun-cli
-VERSION := 1.0.0
+VERSION := $(shell npm pkg get version)
 
 # 定义发布相关变量
 RELEASE_BRANCH := master
@@ -17,6 +17,10 @@ release:
 	@git tag -a $(RELEASE_TAG) -m "$(RELEASE_TAG_MSG)"
 	@git commit -m "$(RELEASE_COMMIT_MSG)" --allow-empty
 	@git push origin $(RELEASE_TAG)
+	
+	# update package.json version
+	@echo "Updating package.json version..."
+	@sed -i 's/"version": ".*"/"version": "$(RELEASE_TAG)"/g' package.json
 
 	@echo "Creating GitHub Release..."
 	@gh release create $(RELEASE_TAG) \
