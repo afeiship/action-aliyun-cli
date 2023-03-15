@@ -21,6 +21,8 @@ release:
 	# update package.json version
 	@echo "Updating package.json version..."
 	@sed -i 's/"version": ".*"/"version": "$(RELEASE_TAG)"/g' package.json
+	@git commit -am "update package.json version to $(RELEASE_TAG)"
+	@git push origin $(RELEASE_BRANCH)
 
 	@echo "Creating GitHub Release..."
 	@gh release create $(RELEASE_TAG) \
