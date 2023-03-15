@@ -1,0 +1,16 @@
+{
+  "name": "action-aliyun-cli",
+  "version": "1.0.1",
+  "description": "Github actions for aliyun-cli.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afeiship/action-aliyun-cli.git"
+  },
+  "keywords": [],
+  "author": "afeiship",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afeiship/action-aliyun-cli/issues"
+  },
+  "homepage": "https://github.com/afeiship/action-aliyun-cli#readme"
+}
